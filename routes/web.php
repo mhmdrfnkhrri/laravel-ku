@@ -6,7 +6,7 @@ use App\Http\Controllers\TransaksiController; // <- pastikan sudah di-include
 
 // Halaman Welcome (default Laravel)
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 // Semua route hanya bisa diakses jika sudah login
