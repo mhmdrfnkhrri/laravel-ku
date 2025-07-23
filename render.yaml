@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: keuangan-pribadi
+    env: docker
+    plan: free
+    repo: https://github.com/mhmdrfnkhrri/laravel-ku
+    branch: main
+    dockerfilePath: Dockerfile
+    buildFilter:
+      paths:
+        - Dockerfile
+        - ./
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: /var/data/database.sqlite
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1
